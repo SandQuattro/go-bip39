@@ -1,7 +1,6 @@
 package bip39
 
 import (
-	"code.google.com/p/go.crypto/pbkdf2"
 	"crypto/rand"
 	"crypto/sha256"
 	"crypto/sha512"
@@ -9,6 +8,8 @@ import (
 	"errors"
 	"math/big"
 	"strings"
+
+	"golang.org/x/crypto/pbkdf2"
 )
 
 // Some bitwise operands for working with big.Ints
@@ -113,7 +114,7 @@ func padByteSlice(slice []byte, length int) []byte {
 
 func validateEntropyBitSize(bitSize int) error {
 	if (bitSize%32) != 0 || bitSize < 128 || bitSize > 256 {
-		return errors.New("Entropy length must be [128, 256] and a multiple of 32")
+		return errors.New("entropy length must be [128, 256] and a multiple of 32")
 	}
 	return nil
 }

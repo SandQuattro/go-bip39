@@ -1,4 +1,4 @@
-module github.com/SandQuattro/go-bip39
+module github.com/sandquattro/go-bip39
 
 go 1.24.0
 
